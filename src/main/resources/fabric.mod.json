@@ -8,8 +8,7 @@
 		"_Qiu"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/qiu-6/QsMoreBodyParam"
 	},
 	"license": "MIT",
 	"icon": "assets/qmorebodyparam/icon.png",

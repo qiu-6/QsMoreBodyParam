@@ -13,6 +13,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.qiu.lib.QsLibApi;
 import net.qiu.morebodyparam.component.entityComponentRegister;
 import net.qiu.morebodyparam.config.modConfig;
 import org.spongepowered.asm.mixin.Mixin;
@@ -53,13 +54,25 @@ public abstract class waterBucketDrinkable extends Item {
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void injectDrinkLogic(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir){
-        ItemStack itemStack = user.getStackInHand(hand);
-        if (isDrinkable(itemStack)){
-            HitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
 
-            if (hitResult.getType() == HitResult.Type.MISS || user.isSneaking()){
-                cir.setReturnValue(ItemUsage.consumeHeldItem(world, user, hand));
-            }
+        ItemStack itemStack = user.getStackInHand(hand);
+
+        if (!isDrinkable(itemStack)) return;
+
+        boolean isThirstFull = !user.getAbilities().creativeMode &&
+                entityComponentRegister.THIRST_COMPONENT.maybeGet(user).map(thirst ->
+                                thirst.getThirst() >= 20)
+                .orElseGet(() -> {
+                    QsLibApi.error.ccaNotRegistered(entityComponentRegister.THIRST_COMPONENT, user);
+                    return false;
+                });
+
+        if (isThirstFull) return;
+
+        HitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
+
+        if (hitResult.getType() == HitResult.Type.MISS || user.isSneaking()){
+            cir.setReturnValue(ItemUsage.consumeHeldItem(world, user, hand));
         }
     }
 

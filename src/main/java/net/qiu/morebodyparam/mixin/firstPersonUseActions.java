@@ -26,10 +26,9 @@ public abstract class firstPersonUseActions {
 
             if (item.getUseAction() == modEnumExtension.APPLY_BANDAGE) {
 
-                float useProgress = (float)player.getItemUseTimeLeft() / (float)item.getMaxUseTime();
+                matrices.push();
 
                 float useTime = (float)player.getItemUseTime() + tickDelta;
-
                 float yOffset = (float)Math.sin(useTime * 0.1f) * 0.1f;
 
                 matrices.translate(0.5f, yOffset, 0f);

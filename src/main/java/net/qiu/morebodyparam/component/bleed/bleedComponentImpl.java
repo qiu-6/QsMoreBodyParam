@@ -8,6 +8,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.random.Random;
+import net.qiu.lib.QsLibAPI;
 import net.qiu.lib.component.movement.moveComponentReg;
 import net.qiu.morebodyparam.component.entityComponentRegister;
 import net.qiu.morebodyparam.config.modConfig;
@@ -111,16 +112,14 @@ public class bleedComponentImpl implements bleedComponent, AutoSyncedComponent, 
                     default -> LOW_BLEED_DRAIN;
                 });
 
-        float multiplier = moveComponentReg.MOVEMENT.maybeGet(player)
-                .map(moveComponent -> switch (moveComponent.getCurrentState()) {
-                    case IDLE -> player.isInsideWaterOrBubbleColumn()
-                            ? modConfig.bleed_water_multiplier : 1.0f;
-                    case WALKING -> modConfig.bleed_walk_multiplier;
-                    case SPRINTING -> modConfig.bleed_sprint_multiplier;
-                    case SWIMMING -> modConfig.bleed_walk_multiplier * modConfig.bleed_water_multiplier;
-                    case SPRINTING_SWIMMING -> modConfig.bleed_sprint_multiplier * modConfig.bleed_water_multiplier;
-                })
-                .orElse(1.0f);
+        float multiplier = switch (QsLibAPI.movement.getState(player)) {
+            case IDLE -> player.isInsideWaterOrBubbleColumn()
+                    ? modConfig.bleed_water_multiplier : 1.0f;
+            case WALKING -> modConfig.bleed_walk_multiplier;
+            case SPRINTING -> modConfig.bleed_sprint_multiplier;
+            case SWIMMING -> modConfig.bleed_walk_multiplier * modConfig.bleed_water_multiplier;
+            case SPRINTING_SWIMMING -> modConfig.bleed_sprint_multiplier * modConfig.bleed_water_multiplier;
+        };
 
         bloodLossTracker += drainPerTick * multiplier;
 

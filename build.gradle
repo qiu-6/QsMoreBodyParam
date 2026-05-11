@@ -8,9 +8,6 @@ group = project.maven_group
 
 repositories {
 
-	// qslib
-	mavenLocal()
-
 	maven { url = "https://maven.fabricmc.net/" }
 
 	// ModMenu
@@ -28,6 +25,13 @@ repositories {
 	// MidnightLib
 	maven {
 		url = "https://maven.midnightdust.eu/releases"
+	}
+
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
 	}
 }
 
@@ -60,7 +64,7 @@ dependencies {
 	modImplementation include ("eu.midnightdust:midnightlib:${project.midnightlib_version}")
 
 	// qslib
-	modImplementation "net.qiu.lib:qslib-fabric:${project.qslib_version}"
+	modImplementation "curse.maven:qslib-1539045:8072965"
 }
 
 processResources {

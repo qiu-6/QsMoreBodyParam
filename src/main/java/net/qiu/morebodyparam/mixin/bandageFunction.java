@@ -41,7 +41,7 @@ public abstract class bandageFunction {
             return false;
         });
 
-        if (!stack.isFood() || user.isSneaking()) {
+        if (!stack.isFood() || user.isSneaking() || !user.getHungerManager().isNotFull()) {
             if (isBleeding) {
                 stack.getOrCreateNbt().putBoolean("IsBandaging", true);
                 user.setCurrentHand(hand);

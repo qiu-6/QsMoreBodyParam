@@ -8,7 +8,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.random.Random;
-import net.qiu.lib.QsLibAPI;
+import net.qiu.lib.QsLibApi;
 import net.qiu.morebodyparam.component.entityComponentRegister;
 import net.qiu.morebodyparam.config.modConfig;
 import net.qiu.morebodyparam.particle.modParticles;
@@ -111,7 +111,7 @@ public class bleedComponentImpl implements bleedComponent, AutoSyncedComponent, 
                     default -> LOW_BLEED_DRAIN;
                 });
 
-        float multiplier = switch (QsLibAPI.movement.getState(player)) {
+        float multiplier = switch (QsLibApi.movement.getState(player)) {
             case IDLE -> player.isInsideWaterOrBubbleColumn()
                     ? modConfig.bleed_water_multiplier : 1.0f;
             case WALKING -> modConfig.bleed_walk_multiplier;

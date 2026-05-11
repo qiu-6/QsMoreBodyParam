@@ -8,7 +8,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.qiu.lib.QsLibAPI;
+import net.qiu.lib.QsLibApi;
 import net.qiu.morebodyparam.component.entityComponentRegister;
 import net.qiu.morebodyparam.util.modEnumExtension;
 import net.qiu.morebodyparam.util.modTags;
@@ -37,7 +37,7 @@ public abstract class bandageFunction {
         if (!stack.isIn(modTags.itemTags.IS_BANDAGE)) return;
 
         boolean isBleeding = entityComponentRegister.BLEED_COMPONENT.maybeGet(user).map(bleedComponent -> bleedComponent.getBleedDuration() != 0).orElseGet(() -> {
-            QsLibAPI.error.nullPlayer();
+            QsLibApi.error.nullPlayer();
             return false;
         });
 
@@ -83,7 +83,7 @@ public abstract class bandageFunction {
             stack.decrement(1);
             entityComponentRegister.BLEED_COMPONENT.maybeGet(user).ifPresentOrElse(bleedComponent ->
                     bleedComponent.setBleed(bleedComponent.getBleedDuration(), bleedComponent.getBleedIntensity() - 1),
-                    QsLibAPI.error::nullPlayer);
+                    QsLibApi.error::nullPlayer);
         }
 
         // Return the stack to indicate the process is done

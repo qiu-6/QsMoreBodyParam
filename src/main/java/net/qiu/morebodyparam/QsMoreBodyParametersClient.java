@@ -11,7 +11,7 @@ public class QsMoreBodyParametersClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        QsMoreBodyParameters.LOGGER.info("Registering  Q's more body parameters at client side.");
+        QsMoreBodyParameters.LOGGER.info("Registering Q's more body parameters at client side.");
         modNetwork.registerC2SPackets();
 
         ParticleFactoryRegistry.getInstance().register(modParticles.BLEED_PARTICLE, bleedParticle.Factory::new);

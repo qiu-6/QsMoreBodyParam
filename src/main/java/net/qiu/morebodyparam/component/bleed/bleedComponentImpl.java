@@ -7,10 +7,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.random.Random;
 import net.qiu.lib.QsLibAPI;
-import net.qiu.lib.component.movement.moveComponentReg;
 import net.qiu.morebodyparam.component.entityComponentRegister;
 import net.qiu.morebodyparam.config.modConfig;
 import net.qiu.morebodyparam.particle.modParticles;
@@ -69,7 +67,6 @@ public class bleedComponentImpl implements bleedComponent, AutoSyncedComponent, 
         bleedDuration = Math.min(duration, MAX_BLEED_DURATION);
 
         if (bleedDuration == 0 || intensity < 0) {
-            player.sendMessage(Text.literal("HI"));
             bleedDuration = 0;
             bleedIntensity = 0;
             bloodLossTracker = 0.0f;

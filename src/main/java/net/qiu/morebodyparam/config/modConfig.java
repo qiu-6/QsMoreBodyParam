@@ -84,5 +84,5 @@ public class modConfig extends MidnightConfig {
     @Comment(category = THIRST) public static Comment spacer4;
 
     @Comment(category = THIRST, centered = true) public static Comment thirst_item_regen_comment;
-    @Entry(category = THIRST,isSlider = true, min = 0, max = 20) public static int thirst_regen_water_bucket = 4;
+    @Entry(category = THIRST,isSlider = true, min = 0, max = 20) public static int thirst_regen_water_bucket = 8;
 }

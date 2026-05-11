@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:arrow",
+    "minecraft:cactus",
+    "minecraft:falling_stalactite",
+    "minecraft:player_attack",
+    "minecraft:sweet_berry_bush",
+    "minecraft:trident"
+  ]
+}

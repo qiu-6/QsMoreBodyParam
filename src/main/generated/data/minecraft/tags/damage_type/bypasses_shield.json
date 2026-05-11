@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "qmorebodyparam:bleed",
+      "required": false
+    },
+    {
+      "id": "qmorebodyparam:thirst",
+      "required": false
+    }
+  ]
+}

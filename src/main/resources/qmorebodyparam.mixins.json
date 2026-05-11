@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "net.qiu.morebodyparam.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "bandageFunction",
+    "damageModifyBleed",
+    "miningSpeedPenality",
+    "useActionInvoker",
+    "waterBucketDrinkable"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "firstPersonUseActions",
+    "hudInjection",
+    "thirdPersonUseActions"
+  ]
+}

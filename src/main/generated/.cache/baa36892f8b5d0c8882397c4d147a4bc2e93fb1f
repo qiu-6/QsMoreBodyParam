@@ -1,0 +1,6 @@
+// 1.20.1	2026-05-08T20:42:00.1073232	Q's more body parameters/Tags for minecraft:damage_type
+fe515039be2819514aabc01b5e94a91572bead07 data\minecraft\tags\damage_type\bypasses_cooldown.json
+fe515039be2819514aabc01b5e94a91572bead07 data\minecraft\tags\damage_type\bypasses_shield.json
+fe515039be2819514aabc01b5e94a91572bead07 data\minecraft\tags\damage_type\bypasses_effects.json
+8eab22a444ec37b733d22c3a5765721ba2419e77 data\qmorebodyparam\tags\damage_type\can_apply_bleed.json
+03544c5a21e80c69b6a73328e9dcb42eae8edbd0 data\qmorebodyparam\tags\damage_type\can_remove_bleed.json

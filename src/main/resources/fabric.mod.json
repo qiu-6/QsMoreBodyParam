@@ -1,0 +1,48 @@
+{
+	"schemaVersion": 1,
+	"id": "qmorebodyparam",
+	"version": "${version}",
+	"name": "Q's more body parameters",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"_Qiu"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/qmorebodyparam/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.qiu.morebodyparam.QsMoreBodyParameters"
+		],
+		"client": [
+			"net.qiu.morebodyparam.QsMoreBodyParametersClient"
+		],
+		"fabric-datagen": [
+			"net.qiu.morebodyparam.QsMoreBodyParametersDataGenerator"
+		],
+		"cardinal-components": [
+			"net.qiu.morebodyparam.component.entityComponentRegister"
+		]
+	},
+	"mixins": [
+		"qmorebodyparam.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"qslib": "~2.0.1"
+	},
+	"custom": {
+		"cardinal-components": [
+			"qmorebodyparam:blood_level",
+			"qmorebodyparam:thirst",
+			"qmorebodyparam:bleed"
+		]
+	}
+}

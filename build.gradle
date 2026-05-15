@@ -27,13 +27,6 @@ repositories {
 		url = "https://maven.midnightdust.eu/releases"
 	}
 
-	maven {
-		url = "https://cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
-	}
-
 	exclusiveContent {
 		forRepository {
 			maven {
@@ -77,7 +70,7 @@ dependencies {
 	modImplementation include ("eu.midnightdust:midnightlib:${project.midnightlib_version}")
 
 	// qslib
-	modImplementation "maven.modrinth:qslib:2.0.1"
+	modImplementation "maven.modrinth:qslib:${qslib_version}"
 }
 
 processResources {

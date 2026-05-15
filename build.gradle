@@ -28,11 +28,24 @@ repositories {
 	}
 
 	maven {
-		url "https://cursemaven.com"
+		url = "https://cursemaven.com"
 		content {
 			includeGroup "curse.maven"
 		}
 	}
+
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup("maven.modrinth")
+		}
+	}
+
 }
 
 fabricApi {
@@ -64,7 +77,7 @@ dependencies {
 	modImplementation include ("eu.midnightdust:midnightlib:${project.midnightlib_version}")
 
 	// qslib
-	modImplementation "curse.maven:qslib-1539045:8072965"
+	modImplementation "maven.modrinth:qslib:2.0.1"
 }
 
 processResources {
